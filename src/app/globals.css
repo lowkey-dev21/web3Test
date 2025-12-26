@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0d0d0f;
+  --foreground: #ffffff;
+  --accent-yellow: #f8ff77;
+  --card-bg: rgba(23, 23, 26, 0.8);
+  --inner-card-bg: rgba(30, 30, 35, 0.6);
 }
 
 @theme inline {
@@ -22,5 +25,56 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background-image: radial-gradient(
+      circle at 50% 50%,
+      rgba(30, 30, 40, 0.5) 0%,
+      transparent 100%
+    ),
+    radial-gradient(circle at 0% 0%, rgba(20, 20, 30, 0.3) 0%, transparent 50%);
+  min-height: 100vh;
+}
+
+.glass-panel {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.inner-card {
+  background: var(--inner-card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.btn-primary {
+  background: var(--accent-yellow);
+  color: #000;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(248, 255, 119, 0.3);
+}
+
+.step-indicator {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.875rem;
+}
+
+.step-active {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  width: auto;
+  padding: 0 1rem;
+  border-radius: 9999px;
 }
