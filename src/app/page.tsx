@@ -79,10 +79,10 @@ export default function Home() {
       </div>
 
       {/* Main Container */}
-      <div className="w-full max-w-[900px] glass-panel rounded-[40px] mt-7 p-8 md:p-12 relative">
+      <div className="w-full max-w-[900px] glass-panel rounded-[24px] md:rounded-[40px] mt-4 md:mt-7 p-6 md:p-12 relative">
         {/* Header */}
-        <div className="flex items-center justify-between mb-10">
-          <div className="flex gap-8 text-3xl font-semibold">
+        <div className="flex items-center justify-between mb-8 md:mb-10">
+          <div className="flex gap-4 md:gap-8 text-xl md:text-3xl font-semibold">
             <button
               onClick={() => setActiveTab("Wallet")}
               className={`${
@@ -100,7 +100,7 @@ export default function Home() {
               Swap
             </button>
           </div>
-          <div className="flex gap-4 text-gray-400 text-2xl">
+          <div className="flex gap-4 text-gray-400 text-lg md:text-2xl">
             <button
               onClick={handleRefresh}
               className={`hover:text-white transition-all ${
@@ -122,10 +122,10 @@ export default function Home() {
         ) : (
           <>
             {/* Swap Cards Grid */}
-            <div className="grid md:grid-cols-2 gap-4 relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4 relative">
               {/* Swap Button (Middle) */}
-              <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-xl bg-[#1a1a1e] border border-white/10 flex items-center justify-center text-gray-400 hover:text-[#f8ff77] hover:border-[#f8ff77]/40 transition-all active:scale-95">
-                <FiRepeat className="rotate-90" />
+              <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-8 md:w-10 h-8 md:h-10 rounded-lg md:rounded-xl bg-[#1a1a1e] border border-white/10 flex items-center justify-center text-gray-400 hover:text-[#f8ff77] hover:border-[#f8ff77]/40 transition-all active:scale-95 shadow-xl">
+                <FiRepeat className="rotate-90 md:rotate-0 text-sm md:text-base" />
               </button>
 
               {/* From Card */}
@@ -195,7 +195,7 @@ export default function Home() {
                       type="text"
                       value={sendAmount}
                       onChange={e => setSendAmount(e.target.value)}
-                      className="bg-transparent text-6xl font-light tracking-tighter text-right w-full outline-none focus:text-white transition-colors"
+                      className="bg-transparent text-3xl md:text-6xl font-light tracking-tighter text-right w-full outline-none focus:text-white transition-colors"
                       placeholder="0.00"
                     />
                     <div className="text-gray-500 mt-1">
@@ -308,7 +308,7 @@ export default function Home() {
                     <span className="text-gray-500">Balance: 0.00</span>
                   </div>
                   <div className="flex flex-col items-end">
-                    <div className="text-6xl font-light tracking-tighter text-gray-400">
+                    <div className="text-3xl md:text-6xl font-light tracking-tighter text-gray-400">
                       0.<span className="text-gray-600">00</span>
                     </div>
                     <div className="text-gray-500 mt-1">≈$0.00</div>
@@ -331,7 +331,7 @@ export default function Home() {
               <button
                 onClick={handleSwap}
                 disabled={swapStatus === "loading"}
-                className={`btn-primary flex items-center gap-2 px-10 py-5 rounded-[24px] text-lg transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ${
+                className={`btn-primary flex items-center gap-2 px-6 md:px-10 py-3 md:py-5 rounded-[20px] md:rounded-[24px] text-base md:text-lg transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ${
                   swapStatus === "success"
                     ? "bg-green-500 text-black border-green-500 shadow-[0_0_20px_rgba(34,197,94,0.4)]"
                     : ""

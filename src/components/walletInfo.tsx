@@ -85,9 +85,8 @@ const WalletInfo: React.FC = () => {
       !window.ethereum;
 
     return (
-      <div className="inner-card rounded-[40px]  p-12 text-center space-y-8 animate-in fade-in zoom-in-95 duration-500">
-        <div className="w-24 h-24 mx-auto relative">
-        </div>
+      <div className="inner-card rounded-[32px] md:rounded-[40px] p-6 md:p-12 text-center space-y-6 md:space-y-8 animate-in fade-in zoom-in-95 duration-500">
+        <div className="w-16 md:w-24 h-16 md:h-24 mx-auto relative"></div>
         <div className="space-y-4">
           <div className="space-y-2">
             <h3 className="text-3xl font-bold">Wallet Not Connected</h3>
@@ -119,17 +118,19 @@ const WalletInfo: React.FC = () => {
     );
   }
 
+  if (!isMounted) return null;
+
   return (
-    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="flex items-center justify-between">
-        <h3 className="text-3xl font-bold">Wallet Details</h3>
-        <div className="px-4 py-1.5 bg-[#f8ff77]/10 border border-[#f8ff77]/20 rounded-full text-[#f8ff77] text-sm font-bold">
+    <div className="space-y-6 md:space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <h3 className="text-2xl md:text-3xl font-bold">Wallet Details</h3>
+        <div className="w-fit px-4 py-1.5 bg-[#f8ff77]/10 border border-[#f8ff77]/20 rounded-full text-[#f8ff77] text-xs md:text-sm font-bold">
           {state.network}
         </div>
       </div>
 
       {/* Account Address Card */}
-      <div className="inner-card rounded-[32px] p-8 space-y-4">
+      <div className="inner-card rounded-[24px] md:rounded-[32px] p-4 md:p-8 space-y-4">
         <div className="flex items-center justify-between text-gray-400">
           <span className="text-xs uppercase tracking-widest font-bold">
             Connected Address
@@ -151,66 +152,68 @@ const WalletInfo: React.FC = () => {
             )}
           </button>
         </div>
-        <div className="p-6 bg-black/20 rounded-2xl border border-white/5">
-          <code className="text-lg md:text-xl break-all font-mono tracking-tight text-white">
+        <div className="p-4 md:p-6 bg-black/20 rounded-2xl border border-white/5">
+          <code className="text-xs md:text-lg break-all font-mono tracking-tight text-white leading-relaxed">
             {state.account}
           </code>
         </div>
       </div>
 
       {/* Stats Grid */}
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="inner-card rounded-[24px] p-6 space-y-4">
           <div className="flex items-center gap-2 text-gray-500">
             <FiDollarSign />
-            <span className="text-xs uppercase font-bold tracking-wider">
+            <span className="text-[10px] md:text-xs uppercase font-bold tracking-wider">
               Balance
             </span>
           </div>
-          <div className="text-3xl font-bold text-white">
+          <div className="text-2xl md:text-3xl font-bold text-white">
             {parseFloat(state.balance).toFixed(4)}{" "}
-            <span className="text-sm text-gray-500">ETH</span>
+            <span className="text-xs md:text-sm text-gray-500">ETH</span>
           </div>
         </div>
 
         <div className="inner-card rounded-[24px] p-6 space-y-4">
           <div className="flex items-center gap-2 text-gray-500">
             <FiExternalLink />
-            <span className="text-xs uppercase font-bold tracking-wider">
+            <span className="text-[10px] md:text-xs uppercase font-bold tracking-wider">
               Gas Price
             </span>
           </div>
-          <div className="text-3xl font-bold text-white font-mono">
+          <div className="text-2xl md:text-3xl font-bold text-white font-mono">
             {gasPrice || "--"}{" "}
-            <span className="text-sm text-gray-500 font-sans">Gwei</span>
+            <span className="text-xs md:text-sm text-gray-500 font-sans">
+              Gwei
+            </span>
           </div>
         </div>
 
         <div className="inner-card rounded-[24px] p-6 space-y-4">
           <div className="flex items-center gap-2 text-gray-500">
             <FiGlobe />
-            <span className="text-xs uppercase font-bold tracking-wider">
+            <span className="text-[10px] md:text-xs uppercase font-bold tracking-wider">
               Current Block
             </span>
           </div>
-          <div className="text-3xl font-bold text-white font-mono">
+          <div className="text-2xl md:text-3xl font-bold text-white font-mono">
             #{blockNumber?.toLocaleString() || "---"}
           </div>
         </div>
       </div>
 
       {/* Action Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4 pt-4">
+      <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4">
         <button
           onClick={viewOnEtherscan}
-          className="flex-1 py-4 bg-[#f8ff77] text-black border border-white/10 rounded-[20px] font-bold transition-all flex items-center justify-center gap-2"
+          className="flex-1 py-3 md:py-4 bg-[#f8ff77] text-black border border-white/10 rounded-[16px] md:rounded-[20px] text-sm md:text-base font-bold transition-all flex items-center justify-center gap-2"
         >
           <FiExternalLink />
           View on Explorer
         </button>
         <button
           onClick={disconnectWallet}
-          className="flex-1 py-4 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-500 rounded-[20px] font-bold transition-all flex items-center justify-center gap-2"
+          className="flex-1 py-3 md:py-4 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-500 rounded-[16px] md:rounded-[20px] text-sm md:text-base font-bold transition-all flex items-center justify-center gap-2"
         >
           <FiLogOut />
           Disconnect Wallet
