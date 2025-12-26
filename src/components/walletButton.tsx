@@ -111,14 +111,14 @@ const WalletButton: React.FC = () => {
       {/* Error Message */}
       {state.error && (
         <div className="fixed top-6 right-6 z-100 animate-in slide-in-from-right-full duration-300">
-          <div className="bg-gray-900/90 backdrop-blur-xl border border-red-500/20 rounded-xl p-4 shadow-2xl flex flex-col gap-3 max-w-sm">
+          <div className="bg-black backdrop-blur-xl border border-red-500/20 rounded-xl p-4 shadow-2xl flex flex-col gap-3 max-w-sm">
             <div className="flex items-center gap-4">
               <div className="shrink-0 w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center">
                 <FiAlertCircle className="text-xl text-red-500" />
               </div>
               <div className="flex-1 min-w-0">
                 <h4 className="text-sm font-bold text-white mb-0.5">
-                  Connection Error
+                  
                 </h4>
                 <p className="text-sm text-gray-400 leading-tight">
                   {state.error}
@@ -142,7 +142,7 @@ const WalletButton: React.FC = () => {
                   href="https://metamask.io/download/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-3 py-2 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/20 rounded-lg text-xs font-bold text-orange-500 transition-colors"
+                  className="flex items-center justify-center gap-2 px-3 py-2 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/20 rounded-full text-xs font-bold text-orange-500 transition-colors"
                 >
                   MetaMask
                 </a>
@@ -150,7 +150,7 @@ const WalletButton: React.FC = () => {
                   href="https://rabby.io/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-3 py-2 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 rounded-lg text-xs font-bold text-blue-400 transition-colors"
+                  className="flex items-center justify-center gap-2 px-3 py-2 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 rounded-full text-xs font-bold text-blue-400 transition-colors"
                 >
                   Rabby Wallet
                 </a>
